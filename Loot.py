@@ -51,8 +51,10 @@ def Hoard(tier):
     return
 
 def Booty(type, value):
-	bfile = json.load("Tables/booty.json")
-	#check json for Dictionary named type and if it has a key value
+	with open("Tables/Booty.json") as bfile:
+		bty = json.load(bfile)
+		if type in bty and value in bty[type]:
+			print(str(value)+"G|"+random.choice(bty[type][value]))
 
 while True:
     inputs = input()
@@ -66,7 +68,7 @@ while True:
         MagicItem("Tables/"+command[1].upper()+".csv")
     elif command[0] == "scroll" and len(command) == 2:
         SpellScroll(command[1])
-   elif command[0] == "booty" and len(command) == 3:
-	Booty(command[1], command[2])
+    elif command[0] == "booty" and len(command) == 3:
+        Booty(command[1], command[2])
     else:
         print("Sorry, but I can't let you do this, Dave.")
