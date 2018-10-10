@@ -1,6 +1,7 @@
 import Dice
 import sys, csv, json, random
 
+
 def Money(tier):
     pRoll = Dice.D(100)
     if tier != "t1" and tier != "t2" and tier !="t3" and tier != "t4":
@@ -49,6 +50,10 @@ def SpellScroll(level):
 def Hoard(tier):
     return
 
+def Booty(type, value):
+	bfile = json.load("Tables/booty.json")
+	#check json for Dictionary named type and if it has a key value
+
 while True:
     inputs = input()
     command = inputs.split()
@@ -61,5 +66,7 @@ while True:
         MagicItem("Tables/"+command[1].upper()+".csv")
     elif command[0] == "scroll" and len(command) == 2:
         SpellScroll(command[1])
+   elif command[0] == "booty" and len(command) == 3:
+	Booty(command[1], command[2])
     else:
         print("Sorry, but I can't let you do this, Dave.")
