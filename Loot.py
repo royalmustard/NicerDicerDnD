@@ -29,8 +29,9 @@ def MagicItem(table):
         reader = csv.reader(itemTableFile, delimiter=";")
         itemTable = {rows[0]:rows[1] for rows in reader}
         previous = 0
+        roll = Dice.D(100)
         for key in itemTable:
-            if Dice.D(100) in range(previous, int(key)):
+            if roll in range(previous, int(key)):
                 print(itemTable.get(key))
                 if "Spell scroll" in itemTable.get(key):
                     scroll = itemTable.get(key).split(" ")
