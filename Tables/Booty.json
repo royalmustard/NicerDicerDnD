@@ -42,5 +42,14 @@
 		"Pearl (opaque lustrous white, yellow, or pink)",
 		"Spinel (transparent red, red-brown, or deep green)",
 		"Tourmaline (transparent pale green, blue, brown or red)"
-	]}
+	],
+  "500":
+  [
+      "Alexandrite (transparent dark green)",
+      "Aquamarine (transparent pale blue-green)",
+      "Black pearl (opaque pure black)",
+      "Blue spinel (transparent deep blue)",
+      "Peridot (transparent rich olive green)",
+      "Topaz (transparent golden yellow)"
+  ]}
 }
