@@ -2,18 +2,18 @@
  "gem":{
   	"10":
   	[
-      	 "Azurite (opaque mottled deep blue)",
-      	 "Banded Achat (translucent striped brown, blue, white, or red)",
-      	 "Blue quartz (transparent pale blue)",
-      	 "Eye Achat (translucent circles of gray, white, brown, blue, or green)",
-      	 "Hämatit (opaque gray-black)",
-      	 "Lapis lazuli (opaque light and dark blue with yellowflecks)",
-      	 "Malachite (opaque striated light and dark green)",
-           "Moss agate (translucent pink or yellow-white with mossy gray or green markings)",
-      	 "Obsidian (opaque black)",
-      	 "Rhodochrosite (opaque light pink)",
-      	 "Tiger eye (translucent brown with golden center)",
-      	 "Turquoise (opaque light blue-green)"
+      "Azurite (opaque mottled deep blue)",
+      "Banded Achat (translucent striped brown, blue, white, or red)",
+      "Blue quartz (transparent pale blue)",
+      "Eye Achat (translucent circles of gray, white, brown, blue, or green)",
+      "Hämatit (opaque gray-black)",
+      "Lapis lazuli (opaque light and dark blue with yellowflecks)",
+      "Malachite (opaque striated light and dark green)",
+      "Moss agate (translucent pink or yellow-white with mossy gray or green markings)",
+      "Obsidian (opaque black)",
+      "Rhodochrosite (opaque light pink)",
+      "Tiger eye (translucent brown with golden center)",
+      "Turquoise (opaque light blue-green)"
   	],
   	"50":
   	[
@@ -45,23 +45,30 @@
   	],
     "500":
     [
-        "Alexandrite (transparent dark green)",
-        "Aquamarine (transparent pale blue-green)",
-        "Black pearl (opaque pure black)",
-        "Blue spinel (transparent deep blue)",
-        "Peridot (transparent rich olive green)",
-        "Topaz (transparent golden yellow)"
+      "Alexandrite (transparent dark green)",
+      "Aquamarine (transparent pale blue-green)",
+      "Black pearl (opaque pure black)",
+      "Blue spinel (transparent deep blue)",
+      "Peridot (transparent rich olive green)",
+      "Topaz (transparent golden yellow)"
     ],
     "1000":
     [
-        "Black opal (translucent dark green with black mottling and golden flecks)",
-        "Blue sapphire (transparent blue-white to medium blue)",
-        "Emerald (transparent deep bright green)",
-        "Fire opal (translucent fiery red)",
-        "Opal (translucent pale blue with green and golden mottling)",
-        "Star ruby (translucent ruby with white star-shaped center)",
-        "Star sapphire (translucent blue sapphire with white star-shaped center)",
-        "Yellow sapphire (transparent fiery yellow or yellow-green)"
+      "Black opal (translucent dark green with black mottling and golden flecks)",
+      "Blue sapphire (transparent blue-white to medium blue)",
+      "Emerald (transparent deep bright green)",
+      "Fire opal (translucent fiery red)",
+      "Opal (translucent pale blue with green and golden mottling)",
+      "Star ruby (translucent ruby with white star-shaped center)",
+      "Star sapphire (translucent blue sapphire with white star-shaped center)",
+      "Yellow sapphire (transparent fiery yellow or yellow-green)"
+    ],
+    "5000":
+    [
+      "Black sapphire (translucent lustrous black with glowing highlights)",
+      "Diamond (transparent blue-white, canary, pink, brown or blue)",
+      "Jacinth (transparent fiery orange)",
+      "Ruby (transparent clear red to deep crimson)"
     ]
   }
 }
