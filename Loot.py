@@ -55,9 +55,7 @@ def Booty(type, value):
 	with open("Tables/Booty.json") as bfile:
 		bty = json.load(bfile)
 		if type in bty and value in bty[type]:
-			print(str(value)+"G|"+random.choice(bty[type][value]))
-        else:
-            print("Not found")
+		    print(str(value)+"G|"+random.choice(bty[type][value]))
 
 while True:
     inputs = input()
