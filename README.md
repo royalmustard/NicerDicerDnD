@@ -7,4 +7,4 @@ Commands:
   - mitem [Magic Item Table Letter]
   - scroll [Spell Scroll Level]
   - money [Party Tier (t1, t2, t3, t4)]
-  - booty [gem;art] [Value in gp]
+  - booty [gem/art] [Value in gp]
