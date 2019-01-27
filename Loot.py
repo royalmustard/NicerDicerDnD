@@ -7,13 +7,13 @@ def Money(tier):
     if tier != "t1" and tier != "t2" and tier !="t3" and tier != "t4":
         return "Tier not recognised! Please try again."
     elif tier == "t1":
-        if pRoll >= 1 and pRoll <= 30:
+        if 1 <= pRoll <= 30:
             return str(Dice.D(6,5))+"CP"
-        elif pRoll >= 31 and pRoll <= 60:
+        elif 31 <= pRoll <= 60:
             return str(Dice.D(6,4))+"SP"
-        elif pRoll >= 61 and pRoll <= 70:
+        elif 61 <= pRoll <= 70:
             return str(Dice.D(6,3))*10+"SP"
-        elif pRoll >= 71 and pRoll <= 95:
+        elif 71 <= pRoll <= 95:
             return str(Dice.D(6,3))+"GP"
         else:
             return str(Dice.D(6))+"PP"
