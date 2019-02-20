@@ -2,6 +2,15 @@ import Dice
 import sys, csv, json, random
 
 
+def printHelp():
+    print("- Valid commands are:")
+    print("- mitem [Letter of Magic Item Table] | Chooses a random magic item from given table")
+    print("- scroll [level] | Chooses a random spell of the given level")
+    print("- money [party tier] | Gives a random amount of money fit to the party tier. Valid parameters are {t1, t2, t3, t4}. Consult the DMG to see which tier is best used")
+    print("- booty [gem/art] [value in gp] | Chooses a random gem or art item of given value")
+
+
+
 def Money(tier):
     pRoll = Dice.D(100)
     if tier != "t1" and tier != "t2" and tier !="t3" and tier != "t4":
@@ -71,5 +80,7 @@ while True:
         SpellScroll(command[1])
     elif command[0] == "booty" and len(command) == 3:
         Booty(command[1], command[2])
+    elif command[0] == "help":
+        printHelp()
     else:
-        print("Sorry, but I can't let you do this, Dave.")
+        print("Unknown command or incorrect usage. Pleas type help for more info")
