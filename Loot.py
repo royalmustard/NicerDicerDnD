@@ -65,6 +65,10 @@ def Booty(type, value):
 		bty = json.load(bfile)
 		if type in bty and value in bty[type]:
 		    print(str(value)+"G|"+random.choice(bty[type][value]))
+                #else:
+                   # print("Valid values are:")
+                   # print("gem [10, 50, 100, 500, 1000, 5000]")
+                   # print("art [25, 250, 750, 2500, 7500")
 
 while True:
     inputs = input()
