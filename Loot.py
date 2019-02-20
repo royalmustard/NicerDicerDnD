@@ -71,6 +71,7 @@ def Booty(type, value):
                    # print("art [25, 250, 750, 2500, 7500")
 
 while True:
+    print("LootConsole > ", end="")
     inputs = input()
     command = inputs.split()
     command = [x.lower() for x in command]
