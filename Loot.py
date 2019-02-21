@@ -13,7 +13,7 @@ def printHelp():
 
 def Money(tier):
     pRoll = Dice.D(100)
-    if tier != "t1" and tier != "t2" and tier !="t3" and tier != "t4":
+    if tier != "t1" and tier != "t2" and tier != "t3" and tier != "t4":
         return "Tier not recognised! Please try again."
     elif tier == "t1":
         if 1 <= pRoll <= 30:
@@ -61,14 +61,14 @@ def Hoard(tier):
     return
 
 def Booty(type, value):
-	with open("Tables/Booty.json") as bfile:
-		bty = json.load(bfile)
-		if type in bty and value in bty[type]:
-		    print(str(value)+"G|"+random.choice(bty[type][value]))
-                #else:
-                   # print("Valid values are:")
-                   # print("gem [10, 50, 100, 500, 1000, 5000]")
-                   # print("art [25, 250, 750, 2500, 7500")
+    with open("Tables/Booty.json") as bfile:
+        bty = json.load(bfile)
+        if type in bty and value in bty[type]:
+            print(str(value)+"G|"+random.choice(bty[type][value]))
+        else:
+            print("Valid values are:")
+            print("gem [10, 50, 100, 500, 1000, 5000]")
+            print("art [25, 250, 750, 2500, 7500")
 
 while True:
     print("LootConsole > ", end="")
