@@ -1,9 +1,9 @@
 import Dice
-import sys, csv, json, random
+import sys, csv, json, random, string
 
 
 def printHelp():
-    print("- Valid commands are:")
+    print("Valid commands are:")
     print("- mitem [Letter of Magic Item Table] | Chooses a random magic item from given table")
     print("- scroll [level] | Chooses a random spell of the given level")
     print("- money [party tier] | Gives a random amount of money fit to the party tier. Valid parameters are {t1, t2, t3, t4}. Consult the DMG to see which tier is best used")
@@ -34,6 +34,10 @@ def money(tier):
 
 
 def magicItem(table):
+        if table not in list(string.ascii_uppercase)[:8]:
+            print("Invalid Table!")
+            return
+        table = "Tables/"+table+".csv"
         itemTableFile = open(table, newline="")
         reader = csv.reader(itemTableFile, delimiter=";")
         itemTable = {rows[0]:rows[1] for rows in reader}
@@ -84,7 +88,7 @@ while True:
     elif command[0] == "money" and len(command) == 2:
         print(money(command[1]))
     elif command[0] == "mitem" and len(command) == 2:
-        magicItem("Tables/"+command[1].upper()+".csv")
+        magicItem(command[1].upper())
     elif command[0] == "scroll" and len(command) == 2:
         spellScroll(command[1])
     elif command[0] == "booty" and len(command) == 3:
