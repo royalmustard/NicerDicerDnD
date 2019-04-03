@@ -26,7 +26,16 @@ def money(tier):
         else:
             return str(Dice.D(6))+"PP"
     elif tier == "t2":
-        return tier+" not yet implemented"
+        if 1 <= pRoll <= 30:
+            return str(Dice.D(6,7))+"GP"
+        elif 31 <= pRoll <= 60:
+            return str(Dice.D(6,6)+Dice.D(6,2)*10)+"GP"
+        elif 61 <= pRoll <= 70:
+            return str(Dice.D(6, 3) + Dice.D(6, 2) * 10) + "GP"
+        elif 71 <= pRoll <= 95:
+            return str(Dice.D(6,4)*10)+"GP"
+        else:
+            return str(Dice.D(6,5))+"GP"
     elif tier == "t3":
         return tier+" not yet implemented"
     elif tier == "t4":
@@ -34,33 +43,31 @@ def money(tier):
 
 
 def magicItem(table):
-        if table not in list(string.ascii_uppercase)[:8]:
-            print("Invalid Table!")
-            return
-        table = "Tables/"+table+".csv"
-        itemTableFile = open(table, newline="")
-        reader = csv.reader(itemTableFile, delimiter=";")
-        itemTable = {rows[0]:rows[1] for rows in reader}
-        previous = 0
-        roll = Dice.D(100)
-        for key in itemTable:
-            if roll in range(previous, int(key)):
-                print(itemTable.get(key))
-                if "Spell scroll" in itemTable.get(key):
-                    scroll = itemTable.get(key).split(" ")
-                    scroll = scroll[2].strip("()")
-                    spellScroll(scroll)
-                break
-            else:
-                previous = int(key)
-        itemTableFile.close()
+    if table not in list(string.ascii_uppercase)[:8]:
+        print("Invalid Table!")
+        return
+    table = "Tables/"+table+".csv"
+    itemTableFile = open(table, newline="")
+    reader = csv.reader(itemTableFile, delimiter=";")
+    itemTable = {rows[0]:rows[1] for rows in reader}
+    previous = 0
+    roll = Dice.D(100)
+    for key in itemTable:
+        if roll in range(previous, int(key)):
+            print(itemTable.get(key))
+            if "Spell scroll" in itemTable.get(key):
+                scroll = itemTable.get(key).split(" ")
+                scroll = scroll[2].strip("()")
+                spellScroll(scroll)
+            break
+        else:
+            previous = int(key)
 
 
 def spellScroll(level):
     with open("Tables/"+level+".json") as spellFile:
         spells = json.load(spellFile)
         print(random.choice(spells))
-    spellFile.close()
 
 
 def hoard(tier):
