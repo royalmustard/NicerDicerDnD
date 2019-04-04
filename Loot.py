@@ -1,4 +1,4 @@
-import Dice
+import Dice, Prob
 import sys, csv, json, random, string
 
 
@@ -8,6 +8,7 @@ def printHelp():
     print("- scroll [level] | Chooses a random spell of the given level")
     print("- money [party tier] | Gives a random amount of money fit to the party tier. Valid parameters are {t1, t2, t3, t4}. Consult the DMG to see which tier is best used")
     print("- booty [gem/art] [value in gp] | Chooses a random gem or art item of given value")
+    print("- prob [ac] [bonus] [a/d/n] | probability to hit ac with bonus and avd/disadv/normal throw")
 
 
 def money(tier):
@@ -102,5 +103,7 @@ while True:
         booty(command[1], command[2])
     elif command[0] == "help":
         printHelp()
+    elif command[0] == "prob" and len (command) == 4:
+        Prob.hitChance(int(command[1]), int(command[2]), command[3])
     else:
         print("Unknown command or incorrect usage. Pleas type help for more info")
