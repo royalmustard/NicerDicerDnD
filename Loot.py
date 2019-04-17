@@ -108,5 +108,5 @@ while True:
             Prob.hitChance(int(command[1]), int(command[2]), command[3])
         else:
             print("Unknown command or incorrect usage. Pleas type help for more info")
-    except:
+    except Exception:
         print("Something went wrong! Very, very wrong!")
