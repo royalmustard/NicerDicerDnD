@@ -87,23 +87,26 @@ def booty(type, value):
 
 
 while True:
-    print("LootConsole > ", end="")
-    inputs = input()
-    command = inputs.split()
-    command = [x.lower() for x in command]
-    if command[0] == "exit":
-        sys.exit()
-    elif command[0] == "money" and len(command) == 2:
-        print(money(command[1]))
-    elif command[0] == "mitem" and len(command) == 2:
-        magicItem(command[1].upper())
-    elif command[0] == "scroll" and len(command) == 2:
-        spellScroll(command[1])
-    elif command[0] == "booty" and len(command) == 3:
-        booty(command[1], command[2])
-    elif command[0] == "help":
-        printHelp()
-    elif command[0] == "prob" and len (command) == 4:
-        Prob.hitChance(int(command[1]), int(command[2]), command[3])
-    else:
-        print("Unknown command or incorrect usage. Pleas type help for more info")
+    try:
+        print("LootConsole > ", end="")
+        inputs = input()
+        command = inputs.split()
+        command = [x.lower() for x in command]
+        if command[0] == "exit":
+            sys.exit()
+        elif command[0] == "money" and len(command) == 2:
+            print(money(command[1]))
+        elif command[0] == "mitem" and len(command) == 2:
+            magicItem(command[1].upper())
+        elif command[0] == "scroll" and len(command) == 2:
+            spellScroll(command[1])
+        elif command[0] == "booty" and len(command) == 3:
+            booty(command[1], command[2])
+        elif command[0] == "help":
+            printHelp()
+        elif command[0] == "prob" and len (command) == 4:
+            Prob.hitChance(int(command[1]), int(command[2]), command[3])
+        else:
+            print("Unknown command or incorrect usage. Pleas type help for more info")
+    except:
+        print("Something went wrong! Very, very wrong!")
