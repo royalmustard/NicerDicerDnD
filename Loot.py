@@ -1,5 +1,5 @@
 import Dice, Prob
-import sys, csv, json, random, string
+import sys, csv, json, random, string, os
 
 
 def printHelp():
@@ -8,12 +8,12 @@ def printHelp():
     print("- scroll [level] | Chooses a random spell of the given level")
     print("- money [party tier] | Gives a random amount of money fit to the party tier. Valid parameters are {t1, t2, t3, t4}. Consult the DMG to see which tier is best used")
     print("- booty [gem/art] [value in gp] | Chooses a random gem or art item of given value")
-    print("- prob [ac] [bonus] [a/d/n] | probability to hit ac with bonus and avd/disadv/normal throw")
+    print("- prob [ac] [bonus] [a/d/n] | probability to hit ac with bonus and adv/disadv/normal throw")
 
 
 def money(tier):
     pRoll = Dice.D(100)
-    if tier != "t1" and tier != "t2" and tier != "t3" and tier != "t4":
+    if tier not in ["t1", "t2", "t3", "t4"]:
         return "Tier not recognised! Please try again."
     elif tier == "t1":
         if 1 <= pRoll <= 30:
@@ -104,8 +104,10 @@ while True:
             booty(command[1], command[2])
         elif command[0] == "help":
             printHelp()
-        elif command[0] == "prob" and len (command) == 4:
+        elif command[0] == "prob" and len(command) == 4:
             Prob.hitChance(int(command[1]), int(command[2]), command[3])
+        elif command[0] == "clear":
+            os.system("cls")
         else:
             print("Unknown command or incorrect usage. Pleas type help for more info")
     except Exception:
