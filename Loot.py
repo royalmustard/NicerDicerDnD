@@ -107,7 +107,7 @@ while True:
         elif command[0] == "prob" and len(command) == 4:
             Prob.hitChance(int(command[1]), int(command[2]), command[3])
         elif command[0] == "clear":
-            os.system("cls")
+            os.system("cls" if os.name == "nt" else "clear")
         else:
             print("Unknown command or incorrect usage. Pleas type help for more info")
     except Exception:
