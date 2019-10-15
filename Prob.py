@@ -10,6 +10,6 @@ def hitChance(ac, bonus=0, state="n"):
         chance = 2*pr-pr**2
     else:
         chance = pr**2
-    print("Hit chance: "+str(round(chance*100,1))+"%")
+    print("Hit chance: "+str(round(chance*100, 1))+"%")
     print("Mu: "+str(10.5+bonus))
 

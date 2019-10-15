@@ -38,10 +38,21 @@ def money(tier):
         else:
             return str(Dice.D(6,5))+"GP"
     elif tier == "t3":
-        return tier+" not yet implemented"
+        if 1 <= pRoll <= 20:
+            return f"{Dice.D(6, 4)*100}SP + {Dice.D(6)*100}GP"
+        elif 21 <= pRoll <= 35:
+            return f"{Dice.D(6)*100}EP + {Dice.D(6)*100}GP"
+        elif 36 <= pRoll <= 75:
+            return f"{Dice.D(6, 2)*100}GP + {Dice.D(6)*10}PP"
+        else:
+            return f"{Dice.D(6, 2)*100}GP + {Dice.D(6, 2)*10}PP"
     elif tier == "t4":
-        return tier+" not yet implemented"
-
+        if 1 <= pRoll <= 15:
+            return f"{Dice.D(6, 2) * 1000}EP + {Dice.D(6, 8) * 100}GP"
+        elif 16 <= pRoll <= 55:
+            return f"{Dice.D(6) * 1000}GP + {Dice.D(6) * 100}PP"
+        else:
+            return f"{Dice.D(6) * 1000}GP + {Dice.D(6, 2) * 100}PP"
 
 def magicItem(table):
     if table not in list(string.ascii_uppercase)[:8]:
@@ -72,7 +83,43 @@ def spellScroll(level):
 
 
 def hoard(tier):
-    return
+    if tier not in ["t1", "t2", "t3", "t4"]:
+        print("Invalid tier!")
+        return
+    if tier == "t1":
+        print(f"{Dice.D(6, 6)*100}CP + {Dice.D(6, 3)*100}SP + {Dice.D(6, 2)*10}GP")
+        hoard_table("h1")
+
+
+def hoard_table(table):
+    if table not in ["h1", "h2", "h3", "h4"]:
+        print("Invalid hoard table!")
+        return
+    with open("Tables/"+table+".csv") as tf:
+        reader = csv.reader(tf)
+        pRoll = Dice.D(100)
+        for row in reader:
+            if int(row[0]) <= pRoll <= int(row[1]):
+                if len(row) < 3:
+                    print("No items for you. Better luck next time!")
+                    return
+                elif len(row) >= 5:
+                    if "d" in row[2]:
+                        rd = row[2].split("d")
+                        for _ in range(Dice.D(int(rd[1]), int(rd[0]))):
+                            booty(row[4], row[3])
+                    else:
+                        for _ in range(int(row[2])):
+                            booty(row[4], row[3])
+                if len(row) == 7:
+                    if "d" in row[5]:
+                        rd = row[5].split("d")
+                        for _ in range(Dice.D(int(rd[1]), int(rd[0]))):
+                            magicItem(row[6])
+                    else:
+                        for _ in range(int(row[5])):
+                            magicItem(row[6])
+
 
 
 def booty(type, value):
@@ -108,6 +155,8 @@ while True:
             Prob.hitChance(int(command[1]), int(command[2]), command[3])
         elif command[0] == "clear":
             os.system("cls" if os.name == "nt" else "clear")
+        elif command[0] == "hoard" and len(command) == 2:
+            hoard(command[1])
         else:
             print("Unknown command or incorrect usage. Pleas type help for more info")
     except Exception:
